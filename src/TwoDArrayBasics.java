@@ -13,19 +13,24 @@ public class TwoDArrayBasics {
 		printArray(nums);
 		
 		//finds the sum of each row
-		System.out.println(rowSum(nums, 1));
+		System.out.println("Sum of row 1: " + rowSum(nums, 1));
 		
 		//finds the sum of all of the rows
 		int[] rowsSum = rowsSum(nums);
+		System.out.print("Rows sum: ");
 		printItems(rowsSum);
 		
 		//checks if all of the items in a 1d array are unique
-		System.out.println(isUnique(rowsSum));
+		System.out.println("Are unique: " + isUnique(rowsSum));
 		
 		//finds the index of a value in a 1d array
-		System.out.println(indexOf(rowsSum, rowsSum[2]));
+		System.out.println("Index of " + rowsSum[2] + " sum, " + indexOf(rowsSum, rowsSum[2]));
 		
+		//finds the minimum value in a 2d array
+		System.out.println("Min: " + min(nums));
 		
+		//finds the maximum value in a 2d array
+		System.out.println("Max: " + max(nums));
 		
 	}
 	/*
@@ -108,6 +113,7 @@ public class TwoDArrayBasics {
 			System.out.print(array[i] + ", ");
 			
 		}
+		System.out.println();
 		
 	}
 	
@@ -154,9 +160,17 @@ public class TwoDArrayBasics {
 	 * return the min value in a 2D array
 	 */
 	
-	public static int min() {
+	public static int min(int[][] array) {
 		
-		return 0;
+		int min = array[0][0];
+		for (int r = 0; r < array.length; r++) {
+			for (int c = 0; c < array[0].length; c++) {
+				if (array[r][c] < min) {
+					min = array[r][c];
+				}
+			}
+		}
+		return min;
 		
 	}
 	
@@ -166,7 +180,19 @@ public class TwoDArrayBasics {
 	 * return the max value in a 2D array
 	 */
 	
-
+	public static int max(int[][] array) {
+		
+		int max = array[0][0];
+		for (int r = 0; r < array.length; r++) {
+			for (int c = 0; c < array[0].length; c++) {
+				if (array[r][c] > max) {
+					max = array[r][c];
+				}
+			}
+		}
+		return max;
+		
+	}
 	
 	
 	
